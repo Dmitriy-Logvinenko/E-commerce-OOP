@@ -9,7 +9,7 @@
 
 1. Клонируйте репозиторий:
 
-`git clone git@github.com:Dmitriy-Logvinenko/Project_1.git`
+`git clone git@github.com:Dmitriy-Logvinenko/E-commerce-OOP.git`
 
 2. Установите зависимости:
 
