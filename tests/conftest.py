@@ -1,6 +1,7 @@
 import pytest
 
-from src.classes import Product, Category
+from src.classes import Category, Product
+
 
 @pytest.fixture
 def product1():
@@ -46,7 +47,7 @@ def category1():
     return Category(
         "Смартфоны",
         "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни",
-        [product1,
+        [
             Product(
                 "Iphone 15",
                 "512GB, Gray space",
@@ -59,7 +60,7 @@ def category1():
                 31000.0,
                 14
             )
-        ]
+         ]
     )
 
 
