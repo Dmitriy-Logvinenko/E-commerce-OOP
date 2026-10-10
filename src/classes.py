@@ -14,12 +14,12 @@ class Product:
 
     @classmethod
     def new_product(cls, product: dict):
-        new_pr.name = product["name"]
-        new_pr.description = product["description"]
-        new_pr.price = product["price"]
-        new_pr.quantity = product["quantity"]
+        new_product = cls(name=product["name"],
+                          description=product["description"],
+                          price=product["price"],
+                          quantity=product["quantity"])
 
-        return new_pr
+        return new_product
 
     @property
     def price(self):
@@ -56,7 +56,7 @@ class Category:
         products_str = ""
         for product in self.__products:
             products_str += f"{product.name}, {product.price}. Остаток: {product.quantity} шт.\n"
-        return self.__products
+        return products_str
 
     def add_product(self, product: Product):
         self.__products.append(product)
