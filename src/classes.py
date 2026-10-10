@@ -12,6 +12,10 @@ class Product:
         self.price = price
         self.quantity = quantity
 
+    @classmethod
+    def new_product(cls, name, description, price, quantity):
+        return cls(name, description, price, quantity)
+
 
 class Category:
     """Класс для предоставления информации о категориях продуктов"""
