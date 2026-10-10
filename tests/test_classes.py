@@ -1,3 +1,6 @@
+from src.classes import Product, Category
+
+
 def test_classes_init(product1):
     assert product1.name == "Samsung Galaxy S23 Ultra"
     assert product1.description == "256GB, Серый цвет, 200MP камера"
@@ -39,3 +42,15 @@ def test_category_init(category1):
                                      "но и получения дополнительных функций для удобства жизни")
     assert category1.category_count == 1
     assert category1.product_count == 3
+
+
+def test_new_product():
+    new_product = Product("Samsung Galaxy S24", "512GB, Серый цвет, +100500MP", 100000.0, 2)
+    new_product.name = "Samsung Galaxy S24 Ultra"
+    new_product.description = "512GB, Серый цвет, +100500MP"
+    new_product.price = 100000.0
+    new_product.quantity = 2
+
+
+def test_product_count():
+    assert Category.product_count == 3
