@@ -54,3 +54,9 @@ def test_new_product():
 
 def test_product_count():
     assert Category.product_count == 3
+
+
+def test_new_price(capsys, product1):
+    product1.price = 0
+    massage = capsys.readouterr()
+    assert massage.out.strip() == "Цена не должна быть нулевая или отрицательная"

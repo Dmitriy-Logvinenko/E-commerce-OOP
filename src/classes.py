@@ -13,8 +13,13 @@ class Product:
         self.quantity = quantity
 
     @classmethod
-    def new_product(cls, name, description, price, quantity):
-        return cls(name, description, price, quantity)
+    def new_product(cls, product: dict):
+        new_pr.name = product["name"]
+        new_pr.description = product["description"]
+        new_pr.price = product["price"]
+        new_pr.quantity = product["quantity"]
+
+        return new_pr
 
     @property
     def price(self):
@@ -22,8 +27,11 @@ class Product:
 
     @price.setter
     def price(self, price):
-        if self.__price <= 0:
+        if price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
+        else:
+            self.__price = price
+        return
 
 
 class Category:
