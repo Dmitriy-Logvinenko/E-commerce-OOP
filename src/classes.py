@@ -2,7 +2,7 @@ class Product:
     """Класс для предоставления информации о продукте"""
     name: str
     description: str
-    price: float
+    __price: float
     quantity: int
 
     def __init__(self, name, description, price, quantity):
@@ -30,7 +30,7 @@ class Category:
     """Класс для предоставления информации о категориях продуктов"""
     name: str
     description: str
-    products: list[Product]
+    __products: list[Product]
 
     category_count = 0
     product_count = 0
