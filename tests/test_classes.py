@@ -69,6 +69,7 @@ def test_product_str(product1, product2, product3, product4):
     assert str(product3) == "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт."
     assert str(product4) == '55" QLED 4K, 123000.0 руб. Остаток: 7 шт.'
 
+
 def test_category_str(category1, category2):
     assert str(category1) == "Смартфоны, количество продуктов: 3 шт."
     assert str(category2) == "Телевизоры, количество продуктов: 1 шт."
