@@ -1,3 +1,4 @@
+import pytest
 from src.classes import Category, Product
 
 
@@ -60,3 +61,36 @@ def test_new_price(capsys, product1):
     product1.price = 0
     massage = capsys.readouterr()
     assert massage.out.strip() == "Цена не должна быть нулевая или отрицательная"
+
+
+def test_product_str(product1, product2, product3, product4):
+    assert str(product1) == "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+    assert str(product2) == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
+    assert str(product3) == "Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт."
+    assert str(product4) == '55" QLED 4K, 123000.0 руб. Остаток: 7 шт.'
+
+
+def test_category_str(category1, category2):
+    assert str(category1) == "Смартфоны, количество продуктов: 3 шт."
+    assert str(category2) == "Телевизоры, количество продуктов: 1 шт."
+
+
+def test_add(product1, product2, product3):
+    assert product1 + product2 == 2580000.0
+    assert product1 + product3 == 1334000.0
+    assert product2 + product3 == 2114000.0
+
+
+def test_iteration(product1, product2, product3, product4):
+    assert product1.name == "Samsung Galaxy S23 Ultra"
+
+
+def test_product_iteration(product_iterator):
+    iter(product_iterator)
+    assert product_iterator.index == 0
+    assert next(product_iterator).name == "Samsung Galaxy S23 Ultra"
+    assert next(product_iterator).name == "Iphone 15"
+    assert next(product_iterator).name == "Xiaomi Redmi Note 11"
+
+    with pytest.raises(StopIteration):
+        next(product_iterator)
