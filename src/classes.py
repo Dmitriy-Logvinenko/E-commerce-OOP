@@ -96,6 +96,7 @@ class Category:
         else:
             raise TypeError
 
+
 class ProductIterator:
     def __init__(self, products_list):
         self.category = products_list
