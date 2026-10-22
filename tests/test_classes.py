@@ -71,8 +71,8 @@ def test_product_str(product1, product2, product3, product4):
 
 
 def test_category_str(category1, category2):
-    assert str(category1) == "Смартфоны, количество продуктов: 3 шт."
-    assert str(category2) == "Телевизоры, количество продуктов: 1 шт."
+    assert str(category1) == "Смартфоны, количество продуктов: 27 шт."
+    assert str(category2) == "Телевизоры, количество продуктов: 7 шт."
 
 
 def test_add(product1, product2, product3):
@@ -94,3 +94,27 @@ def test_product_iteration(product_iterator):
 
     with pytest.raises(StopIteration):
         next(product_iterator)
+
+
+def test_smartphone(smartphone1):
+    assert smartphone1.efficiency == 95.5
+    assert smartphone1.model == "S23 Ultra"
+    assert smartphone1.memory == 256
+    assert smartphone1.color == "Серый"
+
+
+def test_grass(grass1):
+    assert grass1.country == "Россия"
+    assert grass1.germination_period == "7 дней"
+    assert grass1.color == "Зеленый"
+
+
+def test_add_is_false(smartphone1, grass1):
+    assert smartphone1.price + smartphone1.price == 360000
+    with pytest.raises(TypeError):
+        smartphone1 + grass1
+
+
+def test_add_new_product(smartphone1, category1):
+    with pytest.raises(TypeError):
+        category1.add_product("Not a product")
