@@ -47,6 +47,7 @@ def test_new_product():
 
 
 def test_new_price(capsys, product1):
+    capsys.readouterr()
     product1.price = 0
     massage = capsys.readouterr()
     assert massage.out.strip() == "Цена не должна быть нулевая или отрицательная"
