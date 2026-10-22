@@ -8,7 +8,7 @@ class BaseProduct(ABC):
 
     @abstractmethod
     def __init__(self):
-        pass
+        super().__init__()
 
 
 class Product(BaseProduct, MixinProduct):
@@ -22,7 +22,7 @@ class Product(BaseProduct, MixinProduct):
         """Метод для инициализации экземпляра класса продуктов"""
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
         super().__init__()
 
