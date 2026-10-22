@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+
 from src.mixin_product import MixinProduct
 
 
@@ -29,7 +30,7 @@ class Product(BaseProduct, MixinProduct):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
-        if type(other) == self.__class__:
+        if type(other) is self.__class__:
             return self.price * self.quantity + other.price * other.quantity
         else:
             raise TypeError
