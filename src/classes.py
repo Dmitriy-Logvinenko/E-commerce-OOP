@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class BaseProduct(ABC):
+    """Абстрактный класс для создания общего шаблона"""
 
     @abstractmethod
     def __init__(self, name, description, price, quantity):
@@ -12,6 +13,7 @@ class BaseProduct(ABC):
 
 
 class MixinProduct:
+    """Класс для предоставления информации о продукте в консоль"""
 
     def __init__(self, name, description, price, quantity):
         super().__init__(name, description, price, quantity)
