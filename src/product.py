@@ -6,11 +6,8 @@ class BaseProduct(ABC):
     """Абстрактный класс для создания общего шаблона"""
 
     @abstractmethod
-    def __init__(self, name, description, price, quantity):
-        self.name = name
-        self.description = description
-        self.price = price
-        self.quantity = quantity
+    def __init__(self):
+        pass
 
 
 class Product(BaseProduct, MixinProduct):
@@ -22,7 +19,11 @@ class Product(BaseProduct, MixinProduct):
 
     def __init__(self, name, description, price, quantity):
         """Метод для инициализации экземпляра класса продуктов"""
-        super().__init__(name, description, price, quantity)
+        self.name = name
+        self.description = description
+        self.price = price
+        self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
