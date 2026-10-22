@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from src.print_mixin import MixinProduct
+from src.mixin_product import MixinProduct
 
 
 class BaseProduct(ABC):
