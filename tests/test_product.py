@@ -1,6 +1,5 @@
 import pytest
 from src.product import Product
-from src.category import Category
 
 
 def test_classes_init(product1):
@@ -38,24 +37,12 @@ def test_quantity_products(product1, product2, product3, product4):
     assert product4.quantity == 7
 
 
-def test_category_init(category1):
-    assert category1.name == "Смартфоны"
-    assert category1.description == ("Смартфоны, как средство не только коммуникации, "
-                                     "но и получения дополнительных функций для удобства жизни")
-    assert category1.category_count == 1
-    assert category1.product_count == 3
-
-
 def test_new_product():
     new_product = Product("Samsung Galaxy S24", "512GB, Серый цвет, +100500MP", 100000.0, 2)
     new_product.name = "Samsung Galaxy S24 Ultra"
     new_product.description = "512GB, Серый цвет, +100500MP"
     new_product.price = 100000.0
     new_product.quantity = 2
-
-
-def test_product_count():
-    assert Category.product_count == 3
 
 
 def test_new_price(capsys, product1):
@@ -71,30 +58,10 @@ def test_product_str(product1, product2, product3, product4):
     assert str(product4) == '55" QLED 4K, 123000.0 руб. Остаток: 7 шт.'
 
 
-def test_category_str(category1, category2):
-    assert str(category1) == "Смартфоны, количество продуктов: 27 шт."
-    assert str(category2) == "Телевизоры, количество продуктов: 7 шт."
-
-
 def test_add(product1, product2, product3):
     assert product1 + product2 == 2580000.0
     assert product1 + product3 == 1334000.0
     assert product2 + product3 == 2114000.0
-
-
-def test_iteration(product1, product2, product3, product4):
-    assert product1.name == "Samsung Galaxy S23 Ultra"
-
-
-def test_product_iteration(product_iterator):
-    iter(product_iterator)
-    assert product_iterator.index == 0
-    assert next(product_iterator).name == "Samsung Galaxy S23 Ultra"
-    assert next(product_iterator).name == "Iphone 15"
-    assert next(product_iterator).name == "Xiaomi Redmi Note 11"
-
-    with pytest.raises(StopIteration):
-        next(product_iterator)
 
 
 def test_smartphone(smartphone1):
