@@ -1,7 +1,8 @@
 class MixinProduct:
     """Класс для предоставления информации о продукте в консоль"""
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__()
         print(repr(self))
 
     def __repr__(self):
