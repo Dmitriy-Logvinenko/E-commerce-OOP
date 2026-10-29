@@ -23,7 +23,10 @@ class Product(BaseProduct, MixinProduct):
         self.name = name
         self.description = description
         self.__price = price
-        self.quantity = quantity
+        if quantity > 0:
+            self.quantity = quantity
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __str__(self):
@@ -41,7 +44,6 @@ class Product(BaseProduct, MixinProduct):
                           description=product["description"],
                           price=product["price"],
                           quantity=product["quantity"])
-
         return new_product
 
     @property

@@ -88,3 +88,8 @@ def test_add_is_false(smartphone1, grass1):
 def test_add_new_product(smartphone1, category1):
     with pytest.raises(TypeError):
         category1.add_product("Not a product")
+
+
+def test_add_zero_product():
+    with pytest.raises(ValueError):
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)

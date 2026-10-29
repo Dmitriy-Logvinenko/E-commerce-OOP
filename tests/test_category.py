@@ -16,3 +16,7 @@ def test_product_count():
 def test_category_str(category1, category2):
     assert str(category1) == "Смартфоны, количество продуктов: 27 шт."
     assert str(category2) == "Телевизоры, количество продуктов: 7 шт."
+
+
+def test_empty_category(empty_category):
+    assert empty_category.middle_price() == 0
