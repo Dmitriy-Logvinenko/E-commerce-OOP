@@ -104,3 +104,8 @@ def smartphone1():
 def grass1():
     return LawnGrass("Газонная трава", "Элитная трава для газона",
                      500.0, 20, "Россия", "7 дней", "Зеленый")
+
+
+@pytest.fixture
+def empty_category():
+    return Category("Пустая категория", "Категория без продуктов", [])
